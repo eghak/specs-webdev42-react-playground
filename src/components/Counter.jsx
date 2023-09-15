@@ -5,6 +5,8 @@ function Counter() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
   const [fruits, setFruits] = useState(["apple", "banana", "orange", "melon"]);
+  const [showFruits, setShowFruits] = useState(false)
+
 
   function decrement() {
     setCount(count - 1);
@@ -26,7 +28,7 @@ function Counter() {
 
   return (
     <div>
-      <h1>COUNTER</h1>
+      {/* <h1>COUNTER</h1>
 
       <input
         type="text"
@@ -40,11 +42,18 @@ function Counter() {
       </h1>
 
       <button onClick={decrement}>Decrement</button>
-      <button onClick={increment}>Increment</button>
+      <button onClick={increment}>Increment</button> */}
 
-      <h1>These are fruits:</h1>
 
-      <Fruits fruits={fruits} />
+      <br />
+      <br />
+
+      <h1>Show me some fruits text:</h1>
+      <button onClick={() => setShowFruits(true)} >Show Fruits</button>
+      <button onClick={() => setShowFruits(false)} >Hide Fruits</button>
+
+
+      {showFruits ? <Fruits fruits={fruits} /> : null}
 
     </div>
   );
