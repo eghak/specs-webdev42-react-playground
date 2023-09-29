@@ -7,33 +7,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const { get, post, put } = require("./controllers/controller");
+
 ///////// ENDPOINTS HERE ///////////
 
-app.get("/api/get", (req, res) => {
-  console.log("hello");
-  res.status(200).send("GET success");
-});
+app.get("/api/get", get);
 
-app.post("/api/post", (req, res) => {
-  console.log(req);
-  console.log("request has been received");
+app.post("/api/post", post);
 
-//   const username = req.body.username
-  const {username, password} = req.body
-
-  console.log(username)
-  res.status(200).send("POST success");
-});
-
-app.put('/api/put/:id', (req, res) => {
-    console.log(req)
-
-    const {id} = req.params
-
-    console.log(id)
-
-    res.status(200).send('PUT success')
-})
+app.put("/api/put/:id", put);
 
 ///////////////////////////////////
 
